@@ -8,20 +8,17 @@ int main(){
     Token token = get_token(buffer);
 
     do{
-        if(token == SEP){
-            
-            printf("separador: %s \n", buffer);           
+        if(token == SEP){  
+            printf("Separador: %s \n", buffer);           
         } 
         else if (token == CAD){
-            
-            printf("cadena: %s \n", buffer); 
+            printf("Cadena: %s \n", buffer); 
         }
-        
         token = get_token(buffer);
 
     }while( token != FDT);
 
-    printf("Fin de texto:");
+    printf("Fin de texto: ");
 
     return 0;
 }
