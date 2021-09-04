@@ -7,14 +7,11 @@ Token get_token(char *buffer)
 {    
     int a = getchar();     
 
-    while( isspace(a)) { a = getchar(); }
-
-    if(a == ','){
-        buffer[0]  = ','; buffer[1] = '\0';
-        return SEP;
+    while( isspace(a)){ a = getchar(); 
     }
-    else if(a == EOF){   
-        return FDT;
+    if(a == ','){   buffer[0]  = ',';  buffer[1] = '\0';    return SEP;
+    }
+    else if(a == EOF){   return FDT;
     }
     else{
         int p;    
