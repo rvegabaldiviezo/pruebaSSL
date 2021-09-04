@@ -14,7 +14,6 @@ Token get_token(char *buffer)
         return SEP;
     }
     else if(a == EOF){   
-        buffer[0] = ' '; buffer[1] = '\0';
         return FDT;
     }
     else{
