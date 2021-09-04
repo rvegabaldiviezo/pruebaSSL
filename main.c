@@ -21,7 +21,7 @@ int main(){
 
     }while( token != FDT);
 
-    printf("Fin De Texto:");
+    printf("Fin de texto:");
 
     return 0;
 }

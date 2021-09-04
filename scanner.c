@@ -3,35 +3,28 @@
 #include <ctype.h>
 #include "scanner.h"
 
-Token token;
-
 Token get_token(char *buffer)
-{
+{    
     int a = getchar();     
 
-    while(isspace(a))
-    {
-        a = getchar();   
-    }
-    if(a == ',')
-    {
-        token = SEP;
+    while( isspace(a)) { a = getchar(); }
+
+    if(a == ','){
         buffer[0]  = ','; buffer[1] = '\0';
-    }else if(a == EOF)
-    {   
-        token = FDT;
+        return SEP;
+    }
+    else if(a == EOF){   
         buffer[0] = ' '; buffer[1] = '\0';
-    }else if(!isspace(a) && !(a == ',') && !(a == EOF))
-    {
-        token = CAD;
+        return FDT;
+    }
+    else{
         int p;    
-        for (p = 0; !isspace(a) && !(a == ',') && !(a == EOF); p++)
-        {
+        for (p = 0; !isspace(a) && !(a == ',') && !(a == EOF); p++){
             buffer[p] = a;
             a = getchar();  
         }
         buffer[p+1] = '\0';                     
-        ungetc(a, stdin); 
+        ungetc(a, stdin);
+        return CAD; 
     }
-    return token;
 }
